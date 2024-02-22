@@ -1,5 +1,8 @@
 package com.example.tiptime
 
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Surface
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performTextInput
@@ -9,14 +12,16 @@ import org.junit.Test
 import java.text.NumberFormat
 
 class TipUITests {
-    @Rule
+    @get:Rule
     var composeTestRule = createComposeRule()
 
     @Test
     fun calculate_20_percent_tip(){
         composeTestRule.setContent {
             TipTimeTheme {
-                TipTimeLayout()
+                Surface (modifier = Modifier.fillMaxSize()){
+                    TipTimeLayout()
+                }
             }
         }
         composeTestRule.onNodeWithText("Bill Amount")
